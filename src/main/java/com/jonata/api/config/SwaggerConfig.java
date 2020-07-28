@@ -22,7 +22,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.jonata.swapi"))
+                .apis(RequestHandlerSelectors.basePackage("com.jonata.api"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaInfo());
@@ -32,7 +32,7 @@ public class SwaggerConfig {
 
         ApiInfo apiInfo = new ApiInfo(
                 "API REST AMBEV PRODUCTS",
-                "API REST de CRUD de produtos.",
+                "API REST of AMBEV products.",
                 "1.0",
                 "Terms of Service",
                 new Contact("Jonata Hessa", "https://github.com/jonatahessa",

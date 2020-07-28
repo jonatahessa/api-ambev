@@ -8,7 +8,6 @@ import com.jonata.api.dto.ProductDTO;
 import com.jonata.api.model.Product;
 import com.jonata.api.resources.util.URL;
 import com.jonata.api.services.ProductService;
-import com.jonata.api.services.exception.ConnectionException;
 import com.jonata.api.services.exception.ProductInvalidAttribute;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value = "/products")
-@Api(value = "API REST STAR WARS PLANETS")
+@Api(value = "API REST AMBEV PRODUCTS")
 @CrossOrigin(origins = "*")
 public class ProductResource {
 
@@ -41,6 +40,14 @@ public class ProductResource {
     @ApiOperation(value = "Return a list of all products from database.")
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<Product> list = productService.findAll();
+		List<ProductDTO> listDto = list.stream().map(obj -> new ProductDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDto);
+    }
+
+    @GetMapping("/ordered")
+    @ApiOperation(value = "Return a list of all products from database ordered by name.")
+    public ResponseEntity<List<ProductDTO>> findAllOrdered() {
+        List<Product> list = productService.findAllOrdered();
 		List<ProductDTO> listDto = list.stream().map(obj -> new ProductDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
     }

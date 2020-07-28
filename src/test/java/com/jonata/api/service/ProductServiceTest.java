@@ -72,7 +72,7 @@ public class ProductServiceTest {
 
 	@Test
 	public void findPlanetByName() throws Exception {
-		when(productRepository.findByName(mockedProduct.getName())).thenReturn(mockedProduct);
+		when(productRepository.findByNameIgnoreCase(mockedProduct.getName())).thenReturn(mockedProduct);
 		Product planet = service.findByName(mockedProduct.getName());
 		assertThat(planet).isNotNull();
 		assertThat(planet.getName()).isEqualTo(mockedProduct.getName());

@@ -26,14 +26,18 @@ public class ProductService {
     return productRepository.findAll();
   }
 
+  public List<Product> findAllOrdered() {
+    return productRepository.findAllByOrderByNameAsc();
+  }
+
   public Product findById(String id) {
     Optional<Product> obj = productRepository.findById(id);
-    return obj.orElseThrow(() -> new ObjectNotFoundException("Planet not found"));
+    return obj.orElseThrow(() -> new ObjectNotFoundException("Product not found"));
   }
 
   public Product insert(final Product obj) throws ProductInvalidAttribute {
     if (obj.getName() == null || obj.getName().isEmpty()) {
-      throw new ProductInvalidAttribute("The Planet name cannot be empty");
+      throw new ProductInvalidAttribute("The Product name cannot be empty");
     }
 
     obj.setId(null);
@@ -59,7 +63,7 @@ public class ProductService {
   }
 
   public Product findByName(String name) {
-    return productRepository.findByName(name);
+    return productRepository.findByNameIgnoreCase(name);
   }
 
   public Product fromDTO(ProductDTO objDto) {
