@@ -1,4 +1,4 @@
-package com.jonata.swapi.services.exception;
+package com.jonata.api.services.exception;
 
 import java.net.UnknownHostException;
 

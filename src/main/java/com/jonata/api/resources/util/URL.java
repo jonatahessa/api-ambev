@@ -1,4 +1,4 @@
-package com.jonata.swapi.resources.util;
+package com.jonata.api.resources.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

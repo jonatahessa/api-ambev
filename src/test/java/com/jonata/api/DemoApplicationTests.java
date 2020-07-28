@@ -1,4 +1,4 @@
-package com.jonata.swapi;
+package com.jonata.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

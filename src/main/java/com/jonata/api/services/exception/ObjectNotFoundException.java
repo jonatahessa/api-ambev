@@ -1,4 +1,4 @@
-package com.jonata.swapi.services.exception;
+package com.jonata.api.services.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
